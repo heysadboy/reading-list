@@ -21,8 +21,7 @@ export const convertCSVtoJSON = (raw_data, type) => {
     return result;
 }
 
-export const mergeData = (data1, data2) => {
-    let newList = [...data1, ...data2];
+export const sortData = (newList) => {
     newList.sort((a, b) => {
         if (a.title < b.title) {
             return -1;
@@ -32,6 +31,11 @@ export const mergeData = (data1, data2) => {
         }
         return 0;
     })
+    return newList;
+}
 
+export const mergeData = (data1, data2) => {
+    let newList = [...data1, ...data2];
+    newList = sortData(newList);
     return newList;
 }

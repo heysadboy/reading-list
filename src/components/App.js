@@ -78,7 +78,7 @@ const App = () => {
           <i class={`caret ${addData? 'up': 'down'} icon`}></i>
           </button>
         </div>
-        {addData && <MediaForm dataList={dataList} authorsData={authors} setDataList={setDataList} dsetAuthors={setAuthors} setAddData={setAddData} />}
+        {addData && <MediaForm dataList={dataList} authorsData={authors} setDataList={setDataList} setAuthors={setAuthors} setAddData={setAddData} />}
         <div className="ui segment">
           <MediaList dataList={dataList} authorsData={authors} searchTerm={searchTerm} />
         </div>

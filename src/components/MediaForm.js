@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AuthorField from './AuthorField';
 import TypeField from './TypeField';
 import Error from './Error';
+import { sortData } from '../util/data';
 
 const MediaForm = ({ dataList, authorsData, setDataList, setAuthors, setAddData }) => {
     const [type, setType] = useState('');
@@ -41,9 +42,10 @@ const MediaForm = ({ dataList, authorsData, setDataList, setAuthors, setAddData 
         if (checkFormValid(mediaData) && checkFormValid(authorData)) {
             setAddData(false);
             setFormError(false);
-            //setDataList(...dataList, mediaData);
-            //setAuthors(...authorsData, authorData)
-            console.log("hi")
+            const newDataList = sortData([...dataList, mediaData]);
+            const newAuthorList = sortData([...authorsData, authorData]);
+            setDataList(newDataList);
+            setAuthors(newAuthorList);
         }
         else {
             setFormError(true);

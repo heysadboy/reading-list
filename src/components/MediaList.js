@@ -4,7 +4,6 @@ import Error from './Error';
 
 const MediaList = ({ dataList, authorsData, searchTerm }) => {
     const [isEmpty, setIsEmpty] = useState(null);
-
     let renderedList = dataList.map((data) => {
         const authorIDs = data.authors.split(',')
         const authorList = authorIDs.map((author) => {
