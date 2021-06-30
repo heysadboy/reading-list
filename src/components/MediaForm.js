@@ -4,7 +4,7 @@ import TypeField from './TypeField';
 import Error from './Error';
 import { sortData } from '../util/data';
 
-const MediaForm = ({ dataList, authorsData, setDataList, setAuthors, setAddData }) => {
+const MediaForm = ({ books, magazines, authors, setBooks, setMagazines, setAuthors, setAddData }) => {
     const [type, setType] = useState('');
     const [formError, setFormError] = useState(false);
 
@@ -42,10 +42,14 @@ const MediaForm = ({ dataList, authorsData, setDataList, setAuthors, setAddData 
         if (checkFormValid(mediaData) && checkFormValid(authorData)) {
             setAddData(false);
             setFormError(false);
-            const newDataList = sortData([...dataList, mediaData]);
-            const newAuthorList = sortData([...authorsData, authorData]);
-            setDataList(newDataList);
-            setAuthors(newAuthorList);
+
+            if (type === 'magazines') {
+                setMagazines([...magazines, mediaData])
+            }
+            else if (type === 'books') {
+                setBooks([...books, mediaData])
+            }
+            setAuthors([...authors, authorData]);
         }
         else {
             setFormError(true);

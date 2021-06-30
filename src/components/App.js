@@ -75,10 +75,10 @@ const App = () => {
           <button className="ui teal button" onClick={exportData}>Export Data</button>
           <button className="ui grey button" onClick={addDataForm}>
             {addDataText}&ensp;
-          <i class={`caret ${addData? 'up': 'down'} icon`}></i>
+          <i className={`caret ${addData? 'up': 'down'} icon`}></i>
           </button>
         </div>
-        {addData && <MediaForm dataList={dataList} authorsData={authors} setDataList={setDataList} setAuthors={setAuthors} setAddData={setAddData} />}
+        {addData && <MediaForm books={books} magazines={magazines} authors={authors} setBooks={setBooks} setMagazines={setMagazines} setAuthors={setAuthors} setAddData={setAddData} />}
         <div className="ui segment">
           <MediaList dataList={dataList} authorsData={authors} searchTerm={searchTerm} />
         </div>
